@@ -14,7 +14,7 @@ const GoogleIcon = () => (
 );
 
 const Logo = () => (
-  <div className="w-24 h-24 bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-600 rounded-full flex items-center justify-center shadow-lg mb-8">
+  <div className="w-24 h-24 bg-gradient-to-br from-pink-500 via-purple-600 to-indigo-600 rounded-full flex items-center justify-center shadow-lg mb-8 border-2 border-black">
     <span className="text-5xl" role="img" aria-label="logo">
       🎉
     </span>
@@ -45,9 +45,9 @@ export function Login() {
       <Logo />
 
       <form onSubmit={handleSubmit} className="w-full max-w-xs">
-        <div className="pb-3">
+        <div className="mb-4 relative">
           <input
-            className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-full shadow-md border-2 border-black focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
             placeholder="Email"
             type="email"
             required
@@ -55,9 +55,9 @@ export function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div className="pb-5">
+        <div className="mb-6 relative">
           <input
-            className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-full shadow-md border-2 border-black focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
             placeholder="Senha"
             type="password"
             required
@@ -66,11 +66,11 @@ export function Login() {
           />
         </div>
 
-        {erro && <p className="text-red-500 text-center pb-4">{erro}</p>}
+        {erro && <p className="text-red-500 text-center mb-4">{erro}</p>}
 
         <button
           type="button"
-          className="w-full p-2 mb-3 text-base font-semibold text-gray-700 bg-white rounded-full shadow-md border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50"
+          className="w-full p-2 mb-4 text-base font-semibold text-gray-700 bg-white rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] flex items-center justify-center hover:bg-gray-50 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
         >
           <GoogleIcon />
           Fazer login com Google
@@ -78,14 +78,14 @@ export function Login() {
 
         <button
           type="submit"
-          className="w-full p-3 mb-3 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-full shadow-md border-2 border-black hover:opacity-90"
+          className="w-full p-2.5 mb-3 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
         >
           Entrar
         </button>
 
         <Link
           to="/register"
-          className="w-full block p-3 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-full shadow-md border-2 border-black text-center hover:opacity-90"
+          className="w-full block p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
         >
           Voltar
         </Link>
