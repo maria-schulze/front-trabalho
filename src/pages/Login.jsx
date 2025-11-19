@@ -33,9 +33,9 @@ export function Login() {
     <div className="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4">
       <LogoImage />
 
-      <form onSubmit={handleSubmit} className="w-full max-w-xs">
+      <form onSubmit={handleSubmit} className="w-full max-w-xs flex flex-col items-center">
         {/* Campo de Email */}
-        <div className="mb-4 relative">
+        <div className="mb-4 relative w-full">
           <input
             className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
             placeholder="Email"
@@ -47,7 +47,7 @@ export function Login() {
         </div>
 
         {/* Campo de Senha */}
-        <div className="mb-6 relative">
+        <div className="mb-6 relative w-full">
           <input
             className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
             placeholder="Senha"
@@ -59,20 +59,20 @@ export function Login() {
         </div>
 
         {/* Mensagem de Erro */}
-        {erro && <p className="text-red-500 text-center mb-4 font-bold border-2 border-red-500 p-2 rounded bg-red-100">{erro}</p>}
+        {erro && <p className="text-red-500 text-center mb-4 font-bold border-2 border-red-500 p-2 rounded bg-red-100 w-full">{erro}</p>}
 
-        {/* Botão Entrar */}
+        {/* Botão Entrar - Menor */}
         <button
           type="submit"
-          className="w-full p-2.5 mb-3 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
+          className="w-40 p-2.5 mb-3 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
         >
           Entrar
         </button>
 
-        {/* Botão Voltar/Registar */}
+        {/* Botão Voltar/Registar - Menor */}
         <Link
           to="/register"
-          className="w-full block p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
+          className="w-40 block p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
         >
           Cadastrar-se
         </Link>
