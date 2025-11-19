@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://ripe-donella-atitus-fbbf314a.koyeb.app/ws/point';
+// Tenta pegar a URL do Railway. Se não existir, usa o antigo como fallback.
+// Nota: No Railway, VITE_API_URL será https://rest-api-spring... (sem barra no final)
+const API_URL = import.meta.env.VITE_API_URL || 'https://ripe-donella-atitus-fbbf314a.koyeb.app';
 
-
+// Monta o endereço completo do endpoint de pontos
+const BASE_URL = `${API_URL}/ws/point`;
 
 export async function getPoints(token) {
   try {
@@ -12,43 +15,10 @@ export async function getPoints(token) {
       },
     });
 
-    // Mocked response
-    /*
-    const response = {
-      status: 200,
-      data: [
-      {
-        id: 1,
-        descricao: 'Avenida Paulista',
-        latitude: -23.561684,
-        longitude: -46.656139,
-      },
-      {
-        id: 2,
-        descricao: 'Parque Ibirapuera',
-        latitude: -23.587416,
-        longitude: -46.657634,
-      },
-      {
-        id: 3,
-        descricao: 'Mercadão Municipal',
-        latitude: -23.541212,
-        longitude: -46.627684,
-      },
-      {
-        id: 4,
-        descricao: 'Estação da Luz',
-        latitude: -23.536578,
-        longitude: -46.633309,
-      },
-      ],
-    };
-    */
-
-    // o objeto response.data possui os campos latitude e longitude mas precisamos mudar os nomes para lat lng
+    // Mapeia os dados vindos do Java (latitude/longitude) para o formato do Google Maps
     const points = response.data.map(point => ({
       id: point.id,
-      title: point.descricao,
+      title: point.description || "Ponto sem nome", // Backend envia 'description'
       position: {
         lat: point.latitude,
         lng: point.longitude,
@@ -67,24 +37,27 @@ export async function getPoints(token) {
 
 export async function postPoint(token, pointData) {
   try {
-    const response = await axios.post(BASE_URL, pointData, {
+    // Prepara o objeto para enviar ao Java
+    const payload = {
+      description: pointData.descricao, // Java espera 'description'
+      latitude: pointData.latitude,
+      longitude: pointData.longitude
+    };
+
+    const response = await axios.post(BASE_URL, payload, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    // Mocked response
-    /*
-    const response = {
-      status: 200,
-      data: {
-      id: Math.floor(Math.random() * 10000),
-      ...pointData,
-      },
-    };
-    */
     if (response.status === 201) {
-      return response.data;
+      // Retorna o dado salvo adaptado para o Front atualizar o estado
+      return {
+         id: response.data.id,
+         descricao: response.data.description,
+         latitude: response.data.latitude,
+         longitude: response.data.longitude
+      };
     } else {
       throw new Error('Erro ao cadastrar ponto');
     }
