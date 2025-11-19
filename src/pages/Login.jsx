@@ -61,21 +61,24 @@ export function Login() {
         {/* Mensagem de Erro */}
         {erro && <p className="text-red-500 text-center mb-4 font-bold border-2 border-red-500 p-2 rounded bg-red-100 w-full">{erro}</p>}
 
-        {/* Botão Entrar - Menor */}
-        <button
-          type="submit"
-          className="w-40 p-2.5 mb-3 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
-        >
-          Entrar
-        </button>
+        {/* Container para os botões lado a lado */}
+        <div className="flex w-full justify-between gap-4">
+            {/* Botão Entrar */}
+            <button
+            type="submit"
+            className="flex-1 p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
+            >
+            Entrar
+            </button>
 
-        {/* Botão Voltar/Registar - Menor */}
-        <Link
-          to="/register"
-          className="w-40 block p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
-        >
-          Cadastrar-se
-        </Link>
+            {/* Botão Cadastrar-se */}
+            <Link
+            to="/register"
+            className="flex-1 block p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
+            >
+            Cadastrar
+            </Link>
+        </div>
       </form>
     </div>
   );
