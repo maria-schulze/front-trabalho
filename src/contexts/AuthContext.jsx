@@ -1,41 +1,35 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-// Criação do contexto
 const AuthContext = createContext();
 
-// Hook para usar o contexto
 export function useAuth() {
   return useContext(AuthContext);
 }
 
-// Provider do contexto
 export function AuthProvider({ children }) {
-  const [token, setToken] = useState(() => {
-    // Busca token do sessionStorage ao iniciar
-    return sessionStorage.getItem("token") || null;
+  const [user, setUser] = useState(() => {
+    const savedUser = sessionStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  // Salva no sessionStorage sempre que token mudar
   useEffect(() => {
-    if (token) {
-      sessionStorage.setItem("token", token);
+    if (user) {
+      sessionStorage.setItem("user", JSON.stringify(user));
     } else {
-      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("user");
     }
-  }, [token]);
+  }, [user]);
 
-  // Função para login
-  function login(newToken) {
-    setToken(newToken);
+  function login(userData) {
+    setUser(userData);
   }
 
-  // Função para logout
   function logout() {
-    setToken(null);
+    setUser(null);
   }
 
   return (
-    <AuthContext.Provider value={{ token, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
