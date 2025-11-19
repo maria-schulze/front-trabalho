@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Define Poppins como a fonte padrão para tudo */
+:root {
+    font-family: 'Poppins', sans-serif;
+}
+
 html, body, #root {
     height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
