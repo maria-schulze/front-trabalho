@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../services/authService";
 
 const LogoImage = () => (
-  // Aumentei para w-64 h-64 (igual ao Login)
   <div className="w-64 h-64 mb-6 flex items-center justify-center">
     <img src="/logo.PNG" alt="Party Map Logo" className="w-full h-full object-contain drop-shadow-lg" />
   </div>
@@ -29,7 +28,7 @@ export function Register() {
     };
 
     return (
-        <div className="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4">
+        <div className="min-h-screen w-full bg-white flex flex-col items-center justify-start pt-20 p-4">
             <LogoImage />
             
             <h2 className="text-xl font-black mb-4 text-black uppercase tracking-wider border-b-4 border-black pb-1">
@@ -72,9 +71,7 @@ export function Register() {
 
                 {erro && <p className="text-red-500 text-xs text-center mb-3 font-bold border-2 border-red-500 p-1 rounded bg-red-100 w-full">{erro}</p>}
 
-                {/* Botões Compactos Lado a Lado */}
                 <div className="flex w-full justify-between gap-2 mt-2">
-                    {/* Botão Secundário (Esquerda) */}
                     <Link 
                         to="/login" 
                         className="flex-1 block py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center uppercase tracking-wide"
@@ -82,7 +79,6 @@ export function Register() {
                         Voltar
                     </Link>
 
-                    {/* Botão Principal (Direita) */}
                     <button 
                         type="submit"
                         className="flex-1 py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out uppercase tracking-wide"
