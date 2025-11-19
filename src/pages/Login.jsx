@@ -3,7 +3,6 @@ import { signIn } from "../services/authService";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
-// Componente Logo com a imagem personalizada
 const LogoImage = () => (
   <div className="w-32 h-32 mb-8 flex items-center justify-center">
     <img src="/logo.PNG" alt="Party Map Logo" className="w-full h-full object-contain drop-shadow-lg" />
@@ -34,7 +33,6 @@ export function Login() {
       <LogoImage />
 
       <form onSubmit={handleSubmit} className="w-full max-w-xs flex flex-col items-center">
-        {/* Campo de Email */}
         <div className="mb-4 relative w-full">
           <input
             className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
@@ -46,7 +44,6 @@ export function Login() {
           />
         </div>
 
-        {/* Campo de Senha */}
         <div className="mb-6 relative w-full">
           <input
             className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
@@ -58,26 +55,23 @@ export function Login() {
           />
         </div>
 
-        {/* Mensagem de Erro */}
         {erro && <p className="text-red-500 text-center mb-4 font-bold border-2 border-red-500 p-2 rounded bg-red-100 w-full">{erro}</p>}
 
-        {/* Container para os botões lado a lado */}
-        <div className="flex w-full justify-between gap-4">
-            {/* Botão Entrar */}
+        {/* Botões Lado a Lado: Criar Conta (Esq) | Entrar (Dir) */}
+        <div className="flex w-full justify-between gap-3">
+            <Link
+            to="/register"
+            className="flex-1 block py-2 px-1 text-sm text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
+            >
+            Criar conta
+            </Link>
+
             <button
             type="submit"
-            className="flex-1 p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
+            className="flex-1 py-2 px-1 text-sm text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
             >
             Entrar
             </button>
-
-            {/* Botão Cadastrar-se */}
-            <Link
-            to="/register"
-            className="flex-1 block p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
-            >
-            Cadastrar
-            </Link>
         </div>
       </form>
     </div>
