@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const LogoImage = () => (
-  // Aumentei de w-32 h-32 para w-64 h-64 (bastante destaque)
   <div className="w-64 h-64 mb-6 flex items-center justify-center">
     <img src="/logo.PNG" alt="Party Map Logo" className="w-full h-full object-contain drop-shadow-lg" />
   </div>
@@ -30,7 +29,7 @@ export function Login() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen w-full bg-white flex flex-col items-center justify-start pt-20 p-4">
       <LogoImage />
 
       <form onSubmit={handleSubmit} className="w-full max-w-xs flex flex-col items-center">
