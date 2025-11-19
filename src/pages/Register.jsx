@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../services/authService";
 
-// Reutilizamos o componente de Logo (ou podemos importar se você refatorar depois)
 const LogoImage = () => (
-  <div className="w-32 h-32 mb-8 flex items-center justify-center">
+  // Aumentei para w-64 h-64 (igual ao Login)
+  <div className="w-64 h-64 mb-6 flex items-center justify-center">
     <img src="/logo.PNG" alt="Party Map Logo" className="w-full h-full object-contain drop-shadow-lg" />
   </div>
 );
@@ -32,15 +32,14 @@ export function Register() {
         <div className="min-h-screen w-full bg-white flex flex-col items-center justify-center p-4">
             <LogoImage />
             
-            <h2 className="text-2xl font-black mb-6 text-black uppercase tracking-wider">
+            <h2 className="text-xl font-black mb-4 text-black uppercase tracking-wider border-b-4 border-black pb-1">
                 Crie sua Conta
             </h2>
 
-            <form onSubmit={handleSubmit} className="w-full max-w-xs">
-                {/* Campo Nome */}
-                <div className="mb-4 relative">
+            <form onSubmit={handleSubmit} className="w-full max-w-xs flex flex-col items-center">
+                <div className="mb-3 relative w-full">
                     <input
-                        className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
+                        className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
                         placeholder="Nome"
                         type="text"
                         required
@@ -49,10 +48,9 @@ export function Register() {
                     />
                 </div>
 
-                {/* Campo Email */}
-                <div className="mb-4 relative">
+                <div className="mb-3 relative w-full">
                     <input
-                        className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
+                        className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
                         placeholder="Email"
                         type="email"
                         required
@@ -61,10 +59,9 @@ export function Register() {
                     />
                 </div>
 
-                {/* Campo Senha */}
-                <div className="mb-6 relative">
+                <div className="mb-4 relative w-full">
                     <input
-                        className="w-full p-3 text-base text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
+                        className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
                         placeholder="Senha"
                         type="password"
                         required
@@ -73,23 +70,26 @@ export function Register() {
                     />
                 </div>
 
-                {erro && <p className="text-red-500 text-center mb-4 font-bold border-2 border-red-500 p-2 rounded bg-red-100">{erro}</p>}
+                {erro && <p className="text-red-500 text-xs text-center mb-3 font-bold border-2 border-red-500 p-1 rounded bg-red-100 w-full">{erro}</p>}
 
-                {/* Botão Cadastrar */}
-                <button 
-                    type="submit"
-                    className="w-full p-2.5 mb-3 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out"
-                >
-                    Cadastrar
-                </button>
+                {/* Botões Compactos Lado a Lado */}
+                <div className="flex w-full justify-between gap-2 mt-2">
+                    {/* Botão Secundário (Esquerda) */}
+                    <Link 
+                        to="/login" 
+                        className="flex-1 block py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center uppercase tracking-wide"
+                    >
+                        Voltar
+                    </Link>
 
-                {/* Botão Voltar para Login */}
-                <Link 
-                    to="/login" 
-                    className="w-full block p-2.5 text-base text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center"
-                >
-                    Já tenho conta
-                </Link>
+                    {/* Botão Principal (Direita) */}
+                    <button 
+                        type="submit"
+                        className="flex-1 py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out uppercase tracking-wide"
+                    >
+                        Cadastrar
+                    </button>
+                </div>
             </form>
         </div>
     );
