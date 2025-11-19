@@ -29,13 +29,13 @@ export function Login() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white flex flex-col items-center justify-start pt-20 p-4">
+    <div className="min-h-screen w-full bg-white flex flex-col items-center justify-start pt-20 p-4 font-['Poppins']">
       <LogoImage />
 
-      <form onSubmit={handleSubmit} className="w-full max-w-xs flex flex-col items-center">
+      <form onSubmit={handleSubmit} className="w-64 flex flex-col items-center">
         <div className="mb-3 relative w-full">
           <input
-            className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
+            className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out text-center font-['Poppins']"
             placeholder="Email"
             type="email"
             required
@@ -46,7 +46,7 @@ export function Login() {
 
         <div className="mb-4 relative w-full">
           <input
-            className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out"
+            className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out text-center font-['Poppins']"
             placeholder="Senha"
             type="password"
             required
@@ -55,19 +55,19 @@ export function Login() {
           />
         </div>
 
-        {erro && <p className="text-red-500 text-xs text-center mb-3 font-bold border-2 border-red-500 p-1 rounded bg-red-100 w-full">{erro}</p>}
+        {erro && <p className="text-red-500 text-xs text-center mb-3 font-bold border-2 border-red-500 p-1 rounded bg-red-100 w-full font-['Poppins']">{erro}</p>}
 
         <div className="flex w-full justify-between gap-2 mt-2">
             <Link
             to="/register"
-            className="flex-1 block py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center uppercase tracking-wide"
+            className="flex-1 block py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center uppercase tracking-wide font-['Poppins']"
             >
             Criar conta
             </Link>
 
             <button
             type="submit"
-            className="flex-1 py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out uppercase tracking-wide"
+            className="flex-1 py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out uppercase tracking-wide font-['Poppins']"
             >
             Entrar
             </button>
