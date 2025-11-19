@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const API_URL = 'https://ripe-donella-atitus-fbbf314a.koyeb.app/auth';
+// Tenta pegar a variável do Railway. Se não existir, usa o antigo como fallback.
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://ripe-donella-atitus-fbbf314a.koyeb.app';
 
 export async function signIn(email, password) {
   try {
-    const response = await axios.post(`${API_URL}/signin`, { email, password });
+    // Note que adicionamos /auth aqui
+    const response = await axios.post(`${BASE_URL}/auth/signin`, { email, password });
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -21,7 +23,8 @@ export async function signIn(email, password) {
 
 export async function signUp(name, email, password) {
   try {
-    const response = await axios.post(`${API_URL}/signup`, { name, email, password });
+    // Note que adicionamos /auth aqui
+    const response = await axios.post(`${BASE_URL}/auth/signup`, { name, email, password });
     return response.data;
   } catch (error) {
     if (error.response) {
