@@ -26,11 +26,15 @@ export const StarIcon = ({ percent = 100, size = 18 }) => {
     </svg>
   );
 };
+
+// Ícone de Fogo NOVO (Desenho mais limpo)
 export const FireIcon = () => (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.148-.224-4.078.425-5.436A9 9 0 0 1 20.6 19.2c.463.395 1.168.644 2.15.8h.25a9 9 0 0 1-15.972 1.078C4.97 20.966 6.34 21 7 21c1.833 0 2.325-1.213 1.5-6.5z"></path>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2c0 0-6 4.5-6 9.5 0 3.59 2.686 6.5 6 6.5s6-2.91 6-6.5C18 6.5 12 2 12 2z"/>
+        <path d="M12 18c-1.657 0-3-1.343-3-3 0-1.326 1.31-2.558 1.857-3.014.314-.262.88-.226 1.143.157C12.5 13.005 13 14 13 14s.5-.5.5-1.5c0 1.5 1.5 2.5 1.5 4s-1.343 1.5-3 1.5z" fill="currentColor"/>
     </svg>
 );
+
 export const PinkPinIcon = `
   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="url(#pinGradient)" stroke="black" stroke-width="2"/>
