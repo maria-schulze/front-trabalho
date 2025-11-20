@@ -3,12 +3,6 @@ import { signIn } from "../services/authService";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
-const LogoImage = () => (
-  <div className="w-64 h-64 mb-6 flex items-center justify-center">
-    <img src="/logo.PNG" alt="Party Map Logo" className="w-full h-full object-contain drop-shadow-lg" />
-  </div>
-);
-
 export function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -28,49 +22,21 @@ export function Login() {
     }
   };
 
+  const inputStyle = "w-full py-3 px-6 rounded-full border-[3px] border-black text-white font-bold placeholder-white/90 outline-none text-lg shadow-md";
+  const gradientBg = { background: "linear-gradient(90deg, #FF50A8 0%, #F4865E 100%)" };
+
   return (
-    <div className="min-h-screen w-full bg-white flex flex-col items-center justify-start pt-20 p-4 font-['Poppins']">
-      <LogoImage />
-
-      <form onSubmit={handleSubmit} className="w-64 flex flex-col items-center">
-        <div className="mb-3 relative w-full">
-          <input
-            className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out text-center font-['Poppins']"
-            placeholder="Email"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div className="mb-4 relative w-full">
-          <input
-            className="w-full p-2 text-sm text-white font-bold placeholder-white bg-gradient-to-r from-pink-500 to-orange-400 rounded-lg border-2 border-black shadow-[3px_3px_0_0_#000] focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-100 ease-in-out text-center font-['Poppins']"
-            placeholder="Senha"
-            type="password"
-            required
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-          />
-        </div>
-
-        {erro && <p className="text-red-500 text-xs text-center mb-3 font-bold border-2 border-red-500 p-1 rounded bg-red-100 w-full font-['Poppins']">{erro}</p>}
-
-        <div className="flex w-full justify-between gap-2 mt-2">
-            <Link
-            to="/register"
-            className="flex-1 block py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out text-center uppercase tracking-wide font-['Poppins']"
-            >
-            Criar conta
-            </Link>
-
-            <button
-            type="submit"
-            className="flex-1 py-1.5 px-2 text-xs text-white font-bold bg-gradient-to-r from-pink-500 to-orange-400 rounded-md border-2 border-black shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-100 ease-in-out uppercase tracking-wide font-['Poppins']"
-            >
-            Entrar
-            </button>
+    <div className="min-h-full w-full bg-white flex flex-col items-center justify-center p-4 font-['Poppins']">
+      <div className="w-32 h-32 md:w-40 md:h-40 mb-8 animate-bounce-slow">
+        <img src="/logo.PNG" alt="Logo" className="w-full h-full object-contain drop-shadow-lg" />
+      </div>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-sm items-center">
+        <input className={inputStyle} style={gradientBg} placeholder="Email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className={inputStyle} style={gradientBg} placeholder="Senha" type="password" required value={senha} onChange={(e) => setSenha(e.target.value)} />
+        {erro && <div className="w-full text-center text-red-500 font-bold bg-red-100 border-2 border-red-500 rounded-lg p-2 mt-2">{erro}</div>}
+        <div className="flex flex-col gap-3 w-full items-center mt-6">
+            <button type="submit" className="w-48 py-3 rounded-full border-[3px] border-black text-white font-bold text-xl shadow-md hover:scale-105 transition-transform" style={gradientBg}>Entrar</button>
+            <Link to="/" className="w-32 py-2 text-center rounded-full border-[3px] border-black text-white font-bold shadow-md hover:scale-105 transition-transform" style={gradientBg}>Voltar</Link>
         </div>
       </form>
     </div>
