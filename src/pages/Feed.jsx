@@ -9,8 +9,13 @@ const FEED_POSTS = [
   },
   {
     id: 2, user: "Carlos Lima", place: "Beehive", rating: 5, likes: 320,
-    image: "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=500&q=80",
+    image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=500&q=80",
     text: "A melhor iluminação da cidade. Bebidas com preço justo e DJ sensacional.",
+  },
+  {
+    id: 3, user: "Mariana Luz", place: "Rooftop 360", rating: 5, likes: 150,
+    image: "https://images.unsplash.com/photo-1514525253440-b393452e3720?auto=format&fit=crop&w=500&q=80",
+    text: "Vista maravilhosa e drinks perfeitos. O pôr do sol aqui é obrigatório!",
   }
 ];
 
@@ -39,7 +44,6 @@ export function Feed() {
             </div>
             <div className="relative w-full h-64 rounded-2xl overflow-hidden border-2 border-black shadow-sm">
                 <img src={post.image} alt={post.place} className="w-full h-full object-cover" />
-                <div className="absolute top-3 left-3 bg-[#FF4500] text-white text-xs font-bold px-2 py-1 rounded-md shadow-sm">{post.likes}</div>
             </div>
             <div className="bg-white/60 p-3 rounded-xl border border-black/5"><p className="text-sm text-gray-800 font-medium leading-snug">{post.text}</p></div>
             <div className="w-full h-[1px] bg-black/10 mt-2"></div>

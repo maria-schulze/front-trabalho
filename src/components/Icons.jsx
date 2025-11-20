@@ -27,5 +27,19 @@ export const StarIcon = ({ percent = 100, size = 18 }) => {
   );
 };
 export const FireIcon = () => (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.148-.224-4.078.425-5.436A9 9 0 0 1 20.6 19.2c.463.395 1.168.644 2.15.8h.25a9 9 0 0 1-15.972 1.078C4.97 20.966 6.34 21 7 21c1.833 0 2.325-1.213 1.5-6.5z"></path></svg>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.148-.224-4.078.425-5.436A9 9 0 0 1 20.6 19.2c.463.395 1.168.644 2.15.8h.25a9 9 0 0 1-15.972 1.078C4.97 20.966 6.34 21 7 21c1.833 0 2.325-1.213 1.5-6.5z"></path>
+    </svg>
 );
+export const PinkPinIcon = `
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="url(#pinGradient)" stroke="black" stroke-width="2"/>
+    <defs>
+      <linearGradient id="pinGradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FF50A8"/>
+        <stop offset="100%" stop-color="#F4865E"/>
+      </linearGradient>
+    </defs>
+    <circle cx="12" cy="10" r="3" fill="black"/>
+  </svg>
+`;
